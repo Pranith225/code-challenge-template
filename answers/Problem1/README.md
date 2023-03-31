@@ -8,7 +8,7 @@ Here's a breakdown of each column and the reasoning behind its inclusion
 
 ### id SERIAL PRIMARY KEY: 
 
-        This column serves as a unique identifier for each weather data record in the table. Using a primary key ensures that each row can be uniquely identified, which is essential for database operations like updating, deleting, or referencing specific records. The SERIAL data type is used to auto-increment the id, making it easier to insert new records without worrying about providing a unique id manually.
+This column serves as a unique identifier for each weather data record in the table. Using a primary key ensures that each row can be uniquely identified, which is essential for database operations like updating, deleting, or referencing specific records. The SERIAL data type is used to auto-increment the id, making it easier to insert new records without worrying about providing a unique id manually.
 
 ### weather_station_id CHAR(11) NOT NULL: 
         This column represents the weather station from which the data was recorded. It is included to differentiate and identify the source of the weather data. The CHAR(11) data type is used because weather station IDs are 11 characters long, and the NOT NULL constraint ensures that every weather data record is associated with a specific weather station.
