@@ -1,4 +1,4 @@
-#Problem 1 - Data Modeling
+# Problem 1 - Data Modeling
 
 
 The 6 columns chosen for the data model are based on the given weather data description and aim to represent each piece of information provided in the original dataset. 
