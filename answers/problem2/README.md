@@ -12,7 +12,7 @@ This solution ingests weather data from raw text files into a PostgreSQL databas
 
 ## Installation
 
-		pip install requirement.txt
+		pip install requirements.txt
 
 ## Configuration
 
