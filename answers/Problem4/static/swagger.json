@@ -1,0 +1,122 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Weather Data API",
+        "version": "1.0"
+    },
+    "schemes": ["http"],
+    "basePath": "/api",
+    "produces": ["application/json"],
+    "paths": {
+        "/weather": {
+            "get": {
+                "summary": "Get weather data",
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "type": "string",
+                        "format": "date",
+                        "description": "Filter weather data by date (YYYY-MM-DD)"
+                    },
+                    {
+                        "name": "weather_station_id",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Filter weather data by weather station ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of weather data",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/WeatherData"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/weather/stats": {
+            "get": {
+                "summary": "Get yearly weather summary",
+                "parameters": [
+                    {
+                        "name": "year",
+                        "in": "query",
+                        "type": "integer",
+                        "description": "Filter yearly weather summary by year"
+                    },
+                    {
+                        "name": "weather_station_id",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Filter yearly weather summary by weather station ID"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of yearly weather summaries",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/YearlyWeatherSummary"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "WeatherData": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "weather_station_id": {
+                    "type": "string"
+                },
+                "date": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "max_temperature": {
+                    "type": "number"
+                },
+                "min_temperature": {
+                    "type": "number"
+                },
+                "precipitation": {
+                    "type": "number"
+                }
+            }
+        },
+        "YearlyWeatherSummary": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "weather_station_id": {
+                    "type": "string"
+                },
+                "year": {
+                    "type": "integer"
+                },
+                "avg_max_temperature": {
+                    "type": "number"
+                },
+                "avg_min_temperature": {
+                    "type": "number"
+                },
+                "total_precipitation": {
+                    "type": "number"
+                }
+            }
+        }
+    }
+}
